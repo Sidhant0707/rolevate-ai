@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rolevate — AI Career Navigator</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <span class="logo">Rolevate</span>
+        <button class="nav-btn" onclick="scrollToForm()">Get Started →</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <div class="hero-left">
+          <div class="badge">⚡ AI-Powered Career Intelligence</div>
+          <h1>Know What Companies Expect <span class="accent">Before You Apply</span></h1>
+          <p>Enter a company and role. Get a complete AI-powered career roadmap — skills, tools, projects, and interview questions — built around real hiring expectations.</p>
+          <button class="cta-btn" onclick="scrollToForm()">Generate My Roadmap →</button>
+        </div>
+
+        <div class="hero-card">
+          <div class="card-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="card-label">rolevate.ai — roadmap</span>
+          </div>
+          <div class="card-rows">
+            <div class="row"><span class="lbl">Company</span><span class="val blue">GoDaddy</span></div>
+            <div class="row"><span class="lbl">Role</span><span class="val purple">Software Engineer</span></div>
+            <div class="row"><span class="lbl">Level</span><span class="val green">Beginner</span></div>
+          </div>
+          <div class="skills-block">
+            <p class="block-label">Required Skills</p>
+            <div class="tags">
+              <span>JavaScript</span><span>REST APIs</span>
+              <span>Git</span><span>Docker</span><span>AWS</span>
+            </div>
+          </div>
+          <div class="roadmap-block">
+            <p class="block-label">Roadmap</p>
+            <div class="steps">
+              <span>Fundamentals</span>›<span>Web Dev</span>›
+              <span>Backend</span>›<span>Cloud</span>›<span>Job Ready</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <div class="container">
+      <h2>Three Steps to Career Clarity</h2>
+      <p class="section-sub">Simple input. Powerful output. Zero guesswork.</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <h3>Enter Company Name</h3>
+          <p>Type any company — startup, MNC, or product company.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <h3>Choose Role & Level</h3>
+          <p>Select your target role and current skill level.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <h3>Get Your Roadmap</h3>
+          <p>Receive a complete AI-generated career preparation plan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INPUT FORM -->
+  <section class="form-section" id="form">
+    <div class="container">
+      <h2>Build Your Personalized Career Roadmap</h2>
+      <p class="section-sub">Tell us where you want to work. We'll show you exactly how to get there.</p>
+      <div class="form-card">
+        <div class="form-group">
+          <label>Company Name</label>
+          <input type="text" id="company" placeholder="e.g. Google, GoDaddy, Microsoft" />
+        </div>
+        <div class="form-group">
+          <label>Target Role</label>
+          <input type="text" id="role" placeholder="e.g. Software Engineer, Data Analyst" />
+        </div>
+        <div class="form-group">
+          <label>Skill Level</label>
+          <div class="level-toggle">
+            <button class="level-btn active" data-level="Beginner">Beginner</button>
+            <button class="level-btn" data-level="Intermediate">Intermediate</button>
+            <button class="level-btn" data-level="Advanced">Advanced</button>
+          </div>
+        </div>
+        <button class="cta-btn full" id="generate-btn" onclick="generateRoadmap()">
+          Generate My Roadmap →
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS DASHBOARD -->
+  <section class="results-section" id="results" style="display:none;">
+    <div class="container">
+      <h2>Your Personalized Career Roadmap</h2>
+      <p class="section-sub" id="results-subtitle"></p>
+      <div class="results-grid" id="results-grid"></div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="container">
+      <h2>Everything You Need to Prepare Smarter</h2>
+      <p class="section-sub">Six powerful outputs. One intelligent platform.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Required Skills</h3>
+          <p>Understand exactly what your target company values in a candidate.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛠️</div>
+          <h3>Tools & Technologies</h3>
+          <p>Know the exact stack used in that role at that company.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💡</div>
+          <h3>Project Recommendations</h3>
+          <p>Build projects that actually matter for your target role.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🗺️</div>
+          <h3>Learning Roadmap</h3>
+          <p>A step-by-step path from where you are to job-ready.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h3>Future Edge Skills</h3>
+          <p>Emerging technologies that will give you an advantage tomorrow.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎤</div>
+          <h3>Interview Prep</h3>
+          <p>Walk in knowing exactly what questions to expect.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <h2>Start Preparing Smarter.</h2>
+      <p>Your complete career roadmap is one click away.</p>
+      <button class="cta-btn" onclick="scrollToForm()">Generate My Roadmap →</button>
+      <div class="footer-line">© 2025 Rolevate. Built for students, powered by AI.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
